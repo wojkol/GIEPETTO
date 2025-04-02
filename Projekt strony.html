@@ -1,138 +1,9 @@
-<!-- <!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Clone</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .container {
-            display: flex;
-            width: 600px;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .history {
-            width: 150px;
-            border-right: 1px solid #ddd;
-            padding-right: 10px;
-            overflow-y: auto;
-            text-align: center;
-        }
-        .chat-container {
-            flex: 1;
-            padding-left: 10px;
-            text-align: center;
-        }
-        .chat-box {
-            height: 300px;
-            overflow-y: auto;
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 5px;
-            background: #fafafa;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-        .message {
-            padding: 8px;
-            margin: 5px 0;
-            border-radius: 5px;
-        }
-        .user {
-            background: #007bff;
-            color: white;
-            text-align: right;
-        }
-        .bot {
-            background: #e0e0e0;
-            text-align: left;
-        }
-        .input-container {
-            display: flex;
-        }
-        input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        button {
-            padding: 10px;
-            background: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-left: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="history" id="chat-history">
-            <h3>Historia</h3>
-        </div>
-        <div class="chat-container">
-            <h2>Chat</h2>
-            <div class="chat-box" id="chat-box">
-                <div class="message bot">Cześć! Jak mogę Ci pomóc?</div>
-            </div>
-            <div class="input-container">
-                <input type="text" id="user-input" placeholder="Napisz wiadomość...">
-                <button onclick="sendMessage()">Wyślij</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function sendMessage() {
-            let input = document.getElementById("user-input");
-            let message = input.value.trim();
-            if (message === "") return;
-            
-            let chatBox = document.getElementById("chat-box");
-            let userMessage = document.createElement("div");
-            userMessage.className = "message user";
-            userMessage.textContent = message;
-            chatBox.appendChild(userMessage);
-            
-            let botMessage = document.createElement("div");
-            botMessage.className = "message bot";
-            botMessage.textContent = "To tylko demo chatbota!";
-            chatBox.appendChild(botMessage);
-            
-            saveToHistory(message);
-            input.value = "";
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-
-        function saveToHistory(message) {
-            let history = document.getElementById("chat-history");
-            let historyItem = document.createElement("div");
-            historyItem.textContent = message;
-            historyItem.className = "message user";
-            history.appendChild(historyItem);
-        }
-    </script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatGPT Clone</title>
+    <title>Nasz Chat</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -216,7 +87,7 @@
             <h3>Historia</h3>
         </div>
         <div class="chat-container">
-            <h2>ChatGPT Clone</h2>
+            <h2>Chat</h2>
             <div class="chat-box" id="chat-box">
                 <div class="message bot">Cześć! Jak mogę Ci pomóc?</div>
             </div>
