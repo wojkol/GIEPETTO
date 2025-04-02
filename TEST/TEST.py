@@ -1,6 +1,8 @@
 import openai
 import os
 import json
+import uuid
+from datetime import datetime
 
 # Azure OpenAI Configuration
 AZURE_OPENAI_ENDPOINT = "https://eviden-intern-openai-demo.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2025-01-01-preview"  # Replace with your actual endpoint
@@ -15,19 +17,40 @@ client = openai.AzureOpenAI(
     api_version=AZURE_API_VERSION,
 )
 
-# File to store conversation history
-CHAT_HISTORY_FILE = "chat_history.json"
+# Directory to store conversation history by session
+CHAT_HISTORY_DIR = "chat_sessions"
 
-# Load chat history from file
-if os.path.exists(CHAT_HISTORY_FILE):
-    with open(CHAT_HISTORY_FILE, "r", encoding="utf-8") as file:
-        chat_history = json.load(file)
-else:
-    chat_history = []
+# Create the directory if it doesn't exist
+if not os.path.exists(CHAT_HISTORY_DIR):
+    os.makedirs(CHAT_HISTORY_DIR)
 
-def chat_with_ai(user_input):
+# Generate a unique session ID
+def generate_session_id():
+    return str(uuid.uuid4())
+
+# Load chat history for a specific session
+def load_chat_history(session_id):
+    session_file = os.path.join(CHAT_HISTORY_DIR, f"{session_id}.json")
+    if os.path.exists(session_file):
+        with open(session_file, "r", encoding="utf-8") as file:
+            return json.load(file)
+    else:
+        return []
+
+# Save chat history for a specific session
+def save_chat_history(session_id, chat_history):
+    session_file = os.path.join(CHAT_HISTORY_DIR, f"{session_id}.json")
+    with open(session_file, "w", encoding="utf-8") as file:
+        json.dump(chat_history, file, indent=4)
+
+def chat_with_ai(user_input, session_id):
+    # Load existing history for this session
+    chat_history = load_chat_history(session_id)
+    
+    # Append user input to the history
     chat_history.append({"role": "user", "content": user_input})
     
+    # Call OpenAI API to get AI's response
     response = client.chat.completions.create(
         model=AZURE_DEPLOYMENT_NAME,  # Model deployment name
         messages=[{"role": "system", "content": "You are a helpful AI assistant."}] + chat_history,
@@ -37,18 +60,23 @@ def chat_with_ai(user_input):
     ai_message = response.choices[0].message.content
     chat_history.append({"role": "assistant", "content": ai_message})
     
-    # Save chat history to file
-    with open(CHAT_HISTORY_FILE, "w", encoding="utf-8") as file:
-        json.dump(chat_history, file, indent=4)
+    # Save the updated chat history
+    save_chat_history(session_id, chat_history)
     
     return ai_message
 
 if __name__ == "__main__":
     print("AI Assistant: Hello! You can start chatting with me. Type 'exit' to end the conversation.")
+    
+    # Generate a new session ID
+    session_id = generate_session_id()
+    
+    print(f"Session ID: {session_id}")
+    
     while True:
         user_input = input("You: ")
         if user_input.lower() == "exit":
             print("AI Assistant: Goodbye!")
             break
-        ai_response = chat_with_ai(user_input)
+        ai_response = chat_with_ai(user_input, session_id)
         print("AI:", ai_response)
