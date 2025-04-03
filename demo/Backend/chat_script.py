@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Azure OpenAI Configuration
 AZURE_OPENAI_ENDPOINT = "https://eviden-intern-openai-demo.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2025-01-01-preview"
-AZURE_OPENAI_KEY = "6ufNTtmfS6v8nvBKqKiH3pnIbzddOchNaaMgnPzKmpb7JKrnhWkoJQQJ99BCACYeBjFXJ3w3AAABACOGeSxR"
+AZURE_OPENAI_KEY = "key"
 AZURE_DEPLOYMENT_NAME = "gpt-4o-mini"
 AZURE_API_VERSION = "2023-12-01-preview"
 
