@@ -3,10 +3,11 @@ import os
 import json
 import uuid
 from datetime import datetime
+from django.http import JsonResponse
 
 # Azure OpenAI Configuration
 AZURE_OPENAI_ENDPOINT = "https://eviden-intern-openai-demo.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2025-01-01-preview"
-AZURE_OPENAI_KEY = "key"
+AZURE_OPENAI_KEY = "6ufNTtmfS6v8nvBKqKiH3pnIbzddOchNaaMgnPzKmpb7JKrnhWkoJQQJ99BCACYeBjFXJ3w3AAABACOGeSxR"
 AZURE_DEPLOYMENT_NAME = "gpt-4o-mini"
 AZURE_API_VERSION = "2023-12-01-preview"
 
@@ -40,7 +41,29 @@ def save_chat_history(session_id, chat_history):
 def generate_session_id():
     return str(uuid.uuid4())
 
-# Chat function for Django
+
+
+
+def showSessions(message):
+    sess_names = os.listdir("/home/a940614/my_project/demo/chat_sessions")
+    return{
+        "sessionNames":sess_names
+    }
+
+def formatSessionPayload(Sessid):
+    htmlDOMText=""
+    sessionToRetrive = "./chat_sessions/"+Sessid+".json"
+    with open(sessionToRetrive, 'r') as file:
+        data = json.load(file)
+    for wiadomosc in data:
+        htmlDOMText+='<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>'
+    print(htmlDOMText)
+    return{
+        "ChatHistory":htmlDOMText
+    }
+
+
+
 def chat(message, session_id=None):
     if session_id is None:
         session_id = generate_session_id()
@@ -50,8 +73,8 @@ def chat(message, session_id=None):
 
     response = client.chat.completions.create(
         model=AZURE_DEPLOYMENT_NAME,
-        messages=[{"role": "system", "content": "You are a helpful AI assistant."}] + chat_history,
-        max_tokens=100
+        messages=[{"role": "system", "content": "You are a helpful AI assistant, style the text in html tags, add emotes using &codes, use <br>"}] + chat_history,
+        max_tokens=1000
     )
     
     ai_message = response.choices[0].message.content
@@ -64,4 +87,4 @@ def chat(message, session_id=None):
         "ai_message": ai_message,
         "chat_history": chat_history
     }
-print(chat("and what about lesotho","e969d35f-a296-4c84-8bb4-bb88dc34ba89"))
+    

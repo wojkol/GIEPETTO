@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "give me list of steps on how can i get my repo sent to a branch on github using linux cli"
+    },
+    {
+        "role": "assistant",
+        "content": "Sure! Here\u2019s a step-by-step guide on how to send your repository to a branch on GitHub using the Linux command-line interface (CLI) <br> \n\n<ol>\n    <li><strong>Open your terminal:</strong> \ud83d\udda5\ufe0f<br>\n       Launch your terminal application on your Linux machine.</li>\n    \n    <li><strong>Navigate to your repository:</strong> \ud83d\udcc2<br>\n       Use the <code>cd</code> command to change directories to your project folder. For example: <br>\n       <code>cd /path/to/your/repo</code></li>\n\n    <li><strong>Check your current branch:</strong> \ud83d\udd0d<br>\n       Execute the following command to see which branch you are currently on: <br>\n       <code>git branch</code></li>\n\n    <li><strong>Create a new branch (if needed):</strong> \ud83c\udfd7\ufe0f<br>\n       If you want to create a new branch, use: <br>\n       <code>git checkout -b your-branch-name</code></li>\n\n    <li><strong>Add changes to the staging area:</strong> \ud83d\udcdd<br>\n       Add your changes before committing: <br>\n       <code>git add .</code> <br>\n       (This adds all changes; specify files if needed.)</li>\n\n    <li><strong>Commit your changes:</strong> \ud83d\udcbe<br>\n       Now commit your changes with a descriptive message: <br>\n       <code>git commit -m \"Your commit message here\"</code></li>\n\n    <li><strong>Push your changes to GitHub:</strong> \ud83d\ude80<br>\n       Use the following command to push your changes to the specified branch: <br>\n       <code>git push origin your-branch-name</code></li>\n\n    <li><strong>Verify the branch on GitHub:</strong> \ud83c\udf10<br>\n       Go to your GitHub repository page and check that the changes are reflected in the correct branch.</li>\n</ol>\n\n<p>If you need to switch branches, you can use the command: <br>\n<code>git checkout another-branch-name</code></p>\n\n<p>Happy coding! \ud83c\udf89</p>"
+    }
+]

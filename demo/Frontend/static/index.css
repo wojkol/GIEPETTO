@@ -1,0 +1,21 @@
+
+
+#MainSectio{
+    display: flexbox;
+    flex-direction: row;
+}
+
+#leftMENU{
+    border: 3px;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    height: 300px;
+    width: 20vw;
+    float: left;
+    padding: 10px;
+}
+#chat-box{
+    width: 70vw;
+    
+}
