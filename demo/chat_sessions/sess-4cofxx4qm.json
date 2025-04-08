@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "hej"
+    },
+    {
+        "role": "assistant",
+        "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Greeting</title>\n</head>\n<body>\n    <p>Hej! &#128075;<br>\n    How can I assist you today?</p>\n</body>\n</html>"
+    }
+]

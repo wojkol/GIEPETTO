@@ -1,0 +1,13 @@
+{
+  "env": {
+    "GS_CUSTOM_ENDPOINT": "${workspaceFolder}",
+    "LOCALDEBUG": "1",
+    "DEBUG": "1",
+    "SQL_LITE": "0",
+    "USE_CLOUD_SQL_AUTH_PROXY": "true",
+    "DATABASE_URL": "[connection string]"
+  }
+
+  
+}
+

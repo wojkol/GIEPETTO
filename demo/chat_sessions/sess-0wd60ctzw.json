@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "hej, opisz dzialanie turbo"
+    },
+    {
+        "role": "assistant",
+        "content": "<section>\n&star; Turbo \u2013 Twoje auto staje si\u0119 szybsze! &star;<br>\nTurbo, znane r\u00f3wnie\u017c jako turbodo\u0142adowanie, to system zwi\u0119kszaj\u0105cy efektywno\u015b\u0107 i moc silnika poprzez wt\u0142aczanie dodatkowej ilo\u015bci powietrza do komory spalania. To wszystko odbywa si\u0119 za pomoc\u0105 turbospr\u0119\u017carki, kt\u00f3ra jest nap\u0119dzana przez spaliny wydobywaj\u0105ce si\u0119 z silnika. \n\n&plus; Jak to dzia\u0142a? &plus;<br>\n1. **Eksploatacja spalin:** Najpierw, spaliny opuszczaj\u0105ce silnik nap\u0119dzaj\u0105 ma\u0142\u0105 turbin\u0119 w turbospr\u0119\u017carce.\n2. **Aktywacja kompresora:** Turbina ta jest po\u0142\u0105czona z kompresorem kt\u00f3ry, obracaj\u0105c si\u0119, zasysa i spr\u0119\u017ca powietrze z zewn\u0105trz.\n3. **Wi\u0119cej powietrza = wi\u0119ksza moc:** To spr\u0119\u017cone powietrze jest nast\u0119pnie wt\u0142aczane do silnika, co umo\u017cliwia spalanie wi\u0119kszej ilo\u015bci paliwa na jednostk\u0119 czasu i generowanie wi\u0119kszej mocy.\n\n\\Factory; Korzy\u015bci turbo: \\Factory;<br>\n- **Zwi\u0119kszona moc silnika:** bez konieczno\u015bci zwi\u0119kszania jego rozmiar\u00f3w.  \n- **Efektywniejsze spalanie paliwa:** co przek\u0142ada si\u0119 na lepsz\u0105 wydajno\u015b\u0107 paliwow\u0105 i ni\u017csz\u0105 emisj\u0119 spalin.  \n- **Lepsza reakcja na przyspieszenie:** co jest szczeg\u00f3lnie wa\u017cne w sportach motorowych lub dla dynamicznego stylu jazdy.\n\n&spades; Warto pami\u0119ta\u0107, \u017ce chocia\u017c turbo zwi\u0119ksza wydajno\u015b\u0107 silnika, to regularne serwisowanie i odpowiednia eksploatacja s\u0105 kluczowe dla utrzymania jego efektywno\u015bci i d\u0142ugowieczno\u015bci.\n</section>"
+    }
+]

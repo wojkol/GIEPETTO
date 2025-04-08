@@ -1,0 +1,18 @@
+[
+    {
+        "role": "user",
+        "content": "hejcia"
+    },
+    {
+        "role": "assistant",
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Hejcia Greeting</title>\n</head>\n<body>\n    <p>Hejcia! &#128075;</p> <br>\n</body>\n</html>"
+    },
+    {
+        "role": "user",
+        "content": "kim jestes"
+    },
+    {
+        "role": "assistant",
+        "content": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Kim Jestem</title>\n</head>\n<body>\n    <p>Jestem Asystentem AI, gotowym pom&oacute;c ci w ka\u017cdej potrzebie! &#128522;</p> <br>\n</body>\n</html>"
+    }
+]
