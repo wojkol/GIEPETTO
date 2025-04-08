@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 # Azure OpenAI Configuration
 AZURE_OPENAI_ENDPOINT = "https://brainstorm-ai-openai.openai.azure.com/openai/deployments/gpt-4-ai-model/chat/completions?api-version=2025-01-01-preview"
-
+AZURE_OPENAI_KEY = "1CKKDYaRC8zfGLvgggbZTW90POSliW4UMA4h2jVf3VTQHbqmBoy0JQQJ99BAACYeBjFXJ3w3AAABACOGCtqu"
 AZURE_DEPLOYMENT_NAME = "gpt-4-ai-model"
 AZURE_API_VERSION = "2025-01-01-preview"
 
@@ -69,8 +69,7 @@ def formatSessionPayload(Sessid):
     with open(sessionToRetrive, 'r') as file:
         data = json.load(file)
     for wiadomosc in data:
-        historyDOM.append('<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>'+'<br>')
-    
+        historyDOM.append('<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>')
     return{
         "ChatHistory":historyDOM
     }

@@ -36,6 +36,7 @@
                 let odp = document.createElement("p")
                 odp.innerHTML = marked.parse(data.ChatHistory[i])
                 chatBox.appendChild(odp)
+                chatBox.appendChild(document.createElement("br"))
             }
 
            
