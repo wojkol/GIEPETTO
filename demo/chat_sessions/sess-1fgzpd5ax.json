@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "hey, write me a long lorem ipsum"
+    },
+    {
+        "role": "assistant",
+        "content": null
+    }
+]

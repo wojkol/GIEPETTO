@@ -1,0 +1,26 @@
+[
+    {
+        "role": "user",
+        "content": "hej, opisz mi dzialanie turbosprezarki"
+    },
+    {
+        "role": "assistant",
+        "content": "Cze\u015b\u0107! \ud83d\ude0a<br>\nTurbospr\u0119\u017carka to urz\u0105dzenie u\u017cywane do zwi\u0119kszania wydajno\u015bci silnika poprzez wt\u0142aczanie wi\u0119kszej ilo\u015bci powietrza do komory spalania. <br><br>\nDzia\u0142a to na zasadzie odzyskiwania energii z gaz\u00f3w wydechowych, kt\u00f3re nap\u0119dzaj\u0105 turbin\u0119. Ta turbin\u0119 po\u0142\u0105czono z kompresorem, kt\u00f3ry t\u0142oczy powietrze do silnika. Wi\u0119cej powietrza w po\u0142\u0105czeniu z paliwem zwi\u0119ksza moc silnika, co przek\u0142ada si\u0119 na lepsze osi\u0105gi samochodu. \ud83d\ude97\ud83d\udca8<br><br>\nDzi\u0119ki temu auta z turbospr\u0119\u017cark\u0105 mog\u0105 by\u0107 zar\u00f3wno wydajniejsze, jak i ekonomiczniejsze w zu\u017cyciu paliwa!"
+    },
+    {
+        "role": "user",
+        "content": "pokaz mi w tabeli rozne funkcje z JSa"
+    },
+    {
+        "role": "assistant",
+        "content": "Oczywi\u015bcie! Oto tabela z przyk\u0142adami r\u00f3\u017cnych funkcji z JavaScript: <br><br>\n<table border=\"1\">\n  <tr>\n    <th>Nazwa funkcji</th>\n    <th>Opis</th>\n    <th>Przyk\u0142ad u\u017cycia</th>\n  </tr>\n  <tr>\n    <td><code>alert()</code></td>\n    <td>Wy\u015bwietla okno dialogowe z wiadomo\u015bci\u0105</td>\n    <td><code>alert('Hello, world!');</code></td>\n  </tr>\n  <tr>\n    <td><code>console.log()</code></td>\n    <td>Wypisuje informacje w konsoli przegl\u0105darki</td>\n    <td><code>console.log('Hello, world!');</code></td>\n  </tr>\n  <tr>\n    <td><code>prompt()</code></td>\n    <td>Wy\u015bwietla okno dialogowe pytaj\u0105ce u\u017cytkownika o dane</td>\n    <td><code>prompt('Enter your name');</code></td>\n  </tr>\n  <tr>\n    <td><code>parseInt()</code></td>\n    <td>Konwertuje ci\u0105g znak\u00f3w na liczb\u0119 ca\u0142kowit\u0105</td>\n    <td><code>parseInt('123');</code></td>\n  </tr>\n  <tr>\n    <td><code>parseFloat()</code></td>\n    <td>Konwertuje ci\u0105g znak\u00f3w na liczb\u0119 zmiennoprzecinkow\u0105</td>\n    <td><code>parseFloat('123.45');</code></td>\n  </tr>\n</table><br>\nMam nadziej\u0119, \u017ce przyk\u0142ady s\u0105 dla Ciebie przydatne! \ud83d\ude03\ud83d\udcbb"
+    },
+    {
+        "role": "user",
+        "content": "zrob liste uporzadkowana i nieuporzadkowana"
+    },
+    {
+        "role": "assistant",
+        "content": "Oczywi\u015bcie! Poni\u017cej przyk\u0142ad listy uporz\u0105dkowanej i nieuporz\u0105dkowanej: <br><br>\n\n<b>Lista uporz\u0105dkowana:</b> <br>\n<ol>\n  <li>Apel</li>\n  <li>Banany</li>\n  <li>Czere\u015bnie</li>\n</ol>\n<br>\n\n<b>Lista nieuporz\u0105dkowana:</b> <br>\n<ul>\n  <li>Herbata</li>\n  <li>Kawa</li>\n  <li>Sok</li>\n</ul><br>\n\nListy s\u0105 bardzo przydatne do prezentowania informacji w klarowny spos\u00f3b! \ud83d\ude09\ud83d\udcdd"
+    }
+]

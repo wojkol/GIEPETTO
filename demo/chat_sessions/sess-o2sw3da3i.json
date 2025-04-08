@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "cze\u015b\u0107"
+    },
+    {
+        "role": "assistant",
+        "content": "```html\n<p>cze\u015b\u0107! \ud83d\ude0a</p>\n```"
+    }
+]

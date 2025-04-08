@@ -1,0 +1,10 @@
+[
+    {
+        "role": "user",
+        "content": "write me a long lorem ipsum"
+    },
+    {
+        "role": "assistant",
+        "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet est purus. Vivamus vel arcu nec urna vehicula gravida ut in elit. Nam elementum elementum risus, at faucibus eros pharetra ac. Aliquam erat volutpat. Vestibulum quis felis sodales, facilisis lorem non, ornare justo. Suspendisse potenti. Proin varius, massa at venenatis auctor, massa urna lacinia elit, nec faucibus lorem dui vitae eros. Nulla facilisi. Quisque euismod efficitur justo, vel consequat orci cursus eget. Phasellus condimentum fermentum nisi, quis sLorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet est purus.&dagger; Vivamus vel arcu nec urna vehicula gravida ut in elit. Nam elementum elementum risus, at faucibus eros pharetra ac.&hearts; Aliquam erat volutpat. Vestibulum quis felis sodales, facilisis lorem non, ornare justo. Suspendisse potenti. Proin varius, massa at venenatis auctor, massa urna lacinia elit, nec faucibus lorem dui vitae eros. Nulla facilisi. Quisque euismod efficitur justo, vel consequat orci cursus eget.&clubs; Phasellus condimentum fermentum nisi, quis s</p> \n\n<p>uspendisse nec sem sed justo imperdiet semper. Morbi nec venenatis arcu. Cras sollicitudin, odio sed euismod auctor, arcu risus rutrum nulla, eget sagittis magna eros id orci. Mauris eget malesuada dui. Vestibulum nec odio nec nunc porta ultrices non nec risus. Fusce ac nulla id nisi sagittis consequat. Aenean eget massa velit. Aenean facilisis, ligula at tincidunt ultrices, odio diam molestie quam, non finibus magna dui sit amet nisi. In ut magna sed quam blandit finibus eget eget enim. Integer ac magna sit amet turpis mollis accumsan.&bull; Sed imperdiet, mi vel pellentesque sodales, eros lorem mattis augue, nec varius magna sem vitae dolor. Curabitur sagittis quis lectus facilisis ultrices. Vivamus rutrum turpis ac lorem ullamcorper, id pulvinar dolor sagittis. Morbi vel nulla quis risus pharetra luctus.&sect;</p>"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "role": "user",
+        "content": "hej"
+    },
+    {
+        "role": "assistant",
+        "content": "<p>Hej! &#128075; Hur kan jag hj\u00e4lpa dig idag?</p><br>"
+    },
+    {
+        "role": "user",
+        "content": "jak si\u0119 masz"
+    },
+    {
+        "role": "assistant",
+        "content": "<p>Mam si\u0119 dobrze, dzi\u0119kuj\u0119! &#128522; A Ty jak si\u0119 masz?</p><br>"
+    }
+]

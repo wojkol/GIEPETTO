@@ -86,7 +86,10 @@
 
             // Display user message
             let chatBox = document.getElementById("chat-box");
-            chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+            odp1 = document.createElement("p")
+            odp1.innerHTML = `<strong>You:</strong> ${userInput}`
+            chatBox.appendChild(odp1)
             document.getElementById("user-input").value = "";
 
             // Send message to Django backend (Make sure it's POST)
@@ -103,6 +106,8 @@
             // You can choose whether to store session_id in localStorage or just in the session
 
             // Display AI response
-            chatBox.innerHTML += `<p><strong>AI:</strong> ${data.ai_message}</p>`;
+            odp2 = document.createElement("p");
+            odp2.innerHTML=`<strong>AI:</strong>${data.ai_message}`;
+            chatBox.appendChild(odp2);
             showSessions();
         }
