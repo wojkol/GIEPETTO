@@ -30,8 +30,20 @@
                 body: JSON.stringify({ message: new_id})
             });
             let data = await response.json()
-            
-            chatBox.innerHTML = data.ChatHistory
+
+            //newfunction
+            for(let i = 0;i<data.ChatHistory.length;i++){
+                let odp = document.createElement("p")
+                odp.innerHTML = marked.parse(data.ChatHistory[i])
+                chatBox.appendChild(odp)
+            }
+
+           
+            //old function
+            //data.ChatHistory =  marked.parse(data.ChatHistory)
+            //chatBox.innerHTML=data.ChatHistory;
+
+
         }
         //function for showin session options in GUI
         async function showSessions(existing = false){
@@ -53,6 +65,7 @@
                     }
                     //sessionName.innerHTML = data.sessionNames[i];
                     sessionName.setAttribute("onclick",`Changesession("${sessionName.innerHTML+".json"}")`)
+
                     document.getElementById("leftMENU").appendChild(sessionName);
                     document.getElementById("leftMENU").appendChild(document.createElement("br"))
                 }
@@ -107,7 +120,7 @@
 
             // Display AI response
             odp2 = document.createElement("p");
+            data.ai_message =  marked.parse(data.ai_message)
             odp2.innerHTML=`<strong>AI:</strong>${data.ai_message}`;
             chatBox.appendChild(odp2);
-            showSessions();
         }

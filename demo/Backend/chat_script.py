@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 # Azure OpenAI Configuration
 AZURE_OPENAI_ENDPOINT = "https://brainstorm-ai-openai.openai.azure.com/openai/deployments/gpt-4-ai-model/chat/completions?api-version=2025-01-01-preview"
-AZURE_OPENAI_KEY = ""
+AZURE_OPENAI_KEY = "1CKKDYaRC8zfGLvgggbZTW90POSliW4UMA4h2jVf3VTQHbqmBoy0JQQJ99BAACYeBjFXJ3w3AAABACOGCtqu"
 AZURE_DEPLOYMENT_NAME = "gpt-4-ai-model"
 AZURE_API_VERSION = "2025-01-01-preview"
 
@@ -45,24 +45,51 @@ def generate_session_id():
 
 
 def showSessions(message):
-    sess_names = os.listdir("/home/a940623/GIEPETTO/demo/chat_sessions")
+    sess_names = os.listdir("/home/a940614/GIEPETTO/GIEPETTO/demo/chat_sessions")
+    for name in sess_names:
+        if(name[0:4]=="sess"):
+            chat_history = load_chat_history(name[0:-5])
+            #print(chat_history)
+            response = client.chat.completions.create(
+            model=AZURE_DEPLOYMENT_NAME,
+            messages=[{"role": "system", "content": 'Name our conversation up to this point, return max 6 WORDS'}] + chat_history,
+            max_tokens=100
+            )#
+            newname = response.choices[0].message.content
+            os.rename("/home/a940614/GIEPETTO/GIEPETTO/demo/chat_sessions/"+name, "/home/a940614/GIEPETTO/GIEPETTO/demo/chat_sessions/"+newname+".json")
+    sess_names = os.listdir("/home/a940614/GIEPETTO/GIEPETTO/demo/chat_sessions")
     return{
         "sessionNames":sess_names
     }
 
 def formatSessionPayload(Sessid):
     htmlDOMText=""
+    historyDOM = []
     sessionToRetrive = "./chat_sessions/"+Sessid+".json"
     with open(sessionToRetrive, 'r') as file:
         data = json.load(file)
     for wiadomosc in data:
-        htmlDOMText+='<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>'+'<br>'
-    print(htmlDOMText)
+        historyDOM.append('<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>'+'<br>')
+    
     return{
-        "ChatHistory":htmlDOMText
+        "ChatHistory":historyDOM
     }
 
 
+
+
+#def formatSessionPayload(Sessid):
+#    htmlDOMText=""
+#   
+#    sessionToRetrive = "./chat_sessions/"+Sessid+".json"
+#    with open(sessionToRetrive, 'r') as file:
+#        data = json.load(file)
+#    for wiadomosc in data:
+#        htmlDOMText+='<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>'+'<br>'
+#    
+#    return{
+#        "ChatHistory":htmlDOMText
+#    }
 
 def chat(message, session_id=None):
     if session_id is None:
@@ -73,14 +100,14 @@ def chat(message, session_id=None):
 
     response = client.chat.completions.create(
         model=AZURE_DEPLOYMENT_NAME,
-        messages=[{"role": "system", "content": 'You are a helpful AI assistant, style the text with html tags, use <br>, emotes and colours'}] + chat_history,
+        messages=[{"role": "system", "content": 'You are a helpful AI assistant that styles his responses in HTML tags, uses emotes and'}] + chat_history,
         max_tokens=1000
     )#
     
     ai_message = response.choices[0].message.content
     chat_history.append({"role": "assistant", "content": ai_message})
     save_chat_history(session_id, chat_history)
-    print(ai_message)
+    #print(ai_message)
     return {
         "session_id": session_id,
         "user_message": message,
