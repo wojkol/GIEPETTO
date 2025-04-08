@@ -102,7 +102,7 @@
             let chatBox = document.getElementById("chat-box");
 
             odp1 = document.createElement("p")
-            odp1.innerHTML = `<strong>You:</strong> ${userInput}`
+            odp1.innerHTML = `<strong>user:</strong> ${userInput}`
             chatBox.appendChild(odp1)
             document.getElementById("user-input").value = "";
 
@@ -122,6 +122,6 @@
             // Display AI response
             odp2 = document.createElement("p");
             data.ai_message =  marked.parse(data.ai_message)
-            odp2.innerHTML=`<strong>AI:</strong>${data.ai_message}`;
+            odp2.innerHTML=`<strong>assistant:</strong>${data.ai_message}`;
             chatBox.appendChild(odp2);
         }
