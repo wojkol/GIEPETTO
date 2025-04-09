@@ -1,0 +1,94 @@
+[
+    {
+        "role": "user",
+        "content": "search for track america"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:{\"name\": \"American Pie\", \"artist\": \"Don McLean\", \"album\": \"American Pie\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/1fDsrQ23eTAVFElUMaf38X\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2730085dd4362653ef4c54ebbeb\"}"
+    },
+    {
+        "role": "assistant",
+        "content": "I found the track **\"American Pie\"** by **Don McLean** from the album **\"American Pie\"**. Unfortunately, there is no preview available, but you can listen to the full track on [Spotify](https://open.spotify.com/track/1fDsrQ23eTAVFElUMaf38X). Here is the album cover:\n\n![American Pie](https://i.scdn.co/image/ab67616d0000b2730085dd4362653ef4c54ebbeb)"
+    },
+    {
+        "role": "user",
+        "content": "what about telegraph road"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:{\"name\": \"Telegraph Road\", \"artist\": \"Dire Straits\", \"album\": \"Love Over Gold\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/0Bg100ruK1ZD7H96rNo6fR\", \"image\": \"https://i.scdn.co/image/ab67616d0000b27321ebb685af8162c4ed890852\"}"
+    },
+    {
+        "role": "assistant",
+        "content": "I found the track **\"Telegraph Road\"** by **Dire Straits** from the album **\"Love Over Gold\"**. Unfortunately, there is no preview available, but you can groove to the full song on [Spotify](https://open.spotify.com/track/0Bg100ruK1ZD7H96rNo6fR). Take a look at the album cover:\n\n![Telegraph Road](https://i.scdn.co/image/ab67616d0000b27321ebb685af8162c4ed890852)"
+    },
+    {
+        "role": "user",
+        "content": "now search me for 5 top results for dire straits"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:{\"name\": \"Money For Nothing\", \"artist\": \"Dire Straits\", \"album\": \"The Best Of Dire Straits & Mark Knopfler - Private Investigations\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/01Txvu3dNthhldq8oR0Pae\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273178419da701ab7c7f693c9ac\"}"
+    },
+    {
+        "role": "assistant",
+        "content": "Here's a standout track by **Dire Straits**:\n\n**\"Money For Nothing\"** from the album **\"The Best Of Dire Straits & Mark Knopfler - Private Investigations\"**. You can listen to this iconic track on [Spotify](https://open.spotify.com/track/01Txvu3dNthhldq8oR0Pae).\n\n![Money For Nothing](https://i.scdn.co/image/ab67616d0000b273178419da701ab7c7f693c9ac)\n\nLet me know if you want more tracks or anything else!"
+    },
+    {
+        "role": "user",
+        "content": "search for tracked named \"tom sawyer\", and pls show me its id"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:{\"name\": \"Tom Sawyer\", \"artist\": \"Rush\", \"album\": \"Moving Pictures (2011 Remaster)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3QZ7uX97s82HFYSmQUAN1D\", \"image\": \"https://i.scdn.co/image/ab67616d0000b27372833c1ae3343cbfb4617073\", \"id\": \"3QZ7uX97s82HFYSmQUAN1D\"}"
+    },
+    {
+        "role": "assistant",
+        "content": "I found the track **\"Tom Sawyer\"** by **Rush** from the album **\"Moving Pictures (2011 Remaster)\"**. Here are the details:\n\n- **Spotify URL:** [Tom Sawyer on Spotify](https://open.spotify.com/track/3QZ7uX97s82HFYSmQUAN1D)\n- **Track ID:** 3QZ7uX97s82HFYSmQUAN1D\n\n![Tom Sawyer](https://i.scdn.co/image/ab67616d0000b27372833c1ae3343cbfb4617073)\n\nEnjoy listening to this classic rock anthem! Let me know if you need anything else."
+    },
+    {
+        "role": "user",
+        "content": "no, search the one that was made by mindless self indulgence"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:{\"name\": \"Tom Sawyer\", \"artist\": \"Mindless Self Indulgence\", \"album\": \"You'll Rebel to Anything (Expanded and Remastered 2008)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3OnUYB5yBIm3XdWy4PE4hK\", \"image\": \"https://i.scdn.co/image/ab67616d0000b27386bddc6359ffef0f9c51e56e\", \"id\": \"3OnUYB5yBIm3XdWy4PE4hK\"}"
+    },
+    {
+        "role": "assistant",
+        "content": "Here's the track **\"Tom Sawyer\"** by **Mindless Self Indulgence** from the album **\"You'll Rebel to Anything (Expanded and Remastered 2008)\"**. Here are the details:\n\n- **Spotify URL:** [Tom Sawyer on Spotify](https://open.spotify.com/track/3OnUYB5yBIm3XdWy4PE4hK)\n- **Track ID:** 3OnUYB5yBIm3XdWy4PE4hK\n\n![Tom Sawyer](https://i.scdn.co/image/ab67616d0000b27386bddc6359ffef0f9c51e56e)\n\nGive it a spin and let the music take you on a wild ride!"
+    },
+    {
+        "role": "user",
+        "content": "and what other tracks bear this name?"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:[{\"name\": \"Tom Sawyer\", \"artist\": \"Rush\", \"album\": \"Moving Pictures (2011 Remaster)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3QZ7uX97s82HFYSmQUAN1D\", \"image\": \"https://i.scdn.co/image/ab67616d0000b27372833c1ae3343cbfb4617073\", \"id\": \"3QZ7uX97s82HFYSmQUAN1D\"}, {\"name\": \"Tom Sawyer\", \"artist\": \"Mindless Self Indulgence\", \"album\": \"You'll Rebel to Anything (Expanded and Remastered 2008)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3OnUYB5yBIm3XdWy4PE4hK\", \"image\": \"https://i.scdn.co/image/ab67616d0000b27386bddc6359ffef0f9c51e56e\", \"id\": \"3OnUYB5yBIm3XdWy4PE4hK\"}, {\"name\": \"Tom Sawyer\", \"artist\": \"Mindless Self Indulgence\", \"album\": \"You'll Rebel To Anything (Expanded and Remastered 2008)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/4ICHG7EdDz1SQEPaKOzT8Q\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2732262b75046d76cef09342e08\", \"id\": \"4ICHG7EdDz1SQEPaKOzT8Q\"}, {\"name\": \"Tom Sawyer\", \"artist\": \"Kedam\", \"album\": \"Kedam\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/4APJNUEHZ0BQwaDQjSgxFe\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273263484d04ae7caea6f43f69c\", \"id\": \"4APJNUEHZ0BQwaDQjSgxFe\"}, {\"name\": \"Tom Sawyer - Live\", \"artist\": \"Prog Legends Show\", \"album\": \"Live in Verona 2023\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/0rqfSgVJdJFnKITzniNGmz\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273c44b71acb8701c8186785af4\", \"id\": \"0rqfSgVJdJFnKITzniNGmz\"}, {\"name\": \"Jaki by\\u0142 ten dzie\\u0144\", \"artist\": \"Turbo\", \"album\": \"Smak ciszy\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3S5jjtxQKhcWdq3A3pDzvp\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273aa7c14cd03fc53847b8849f9\", \"id\": \"3S5jjtxQKhcWdq3A3pDzvp\"}, {\"name\": \"Alien\", \"artist\": \"TSA\", \"album\": \"Heavy Metal World\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/4AlIPhan98QveWGQNC6IMh\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2732b6563a5b1f276527d26274d\", \"id\": \"4AlIPhan98QveWGQNC6IMh\"}, {\"name\": \"\\u017bo\\u0142nierz fortuny\", \"artist\": \"Turbo\", \"album\": \"Kawaleria szatana\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/5saFIeYEOtiHJIaTmmooor\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273ce82af0360d72c3e8f4c9934\", \"id\": \"5saFIeYEOtiHJIaTmmooor\"}]"
+    },
+    {
+        "role": "assistant",
+        "content": "Here are other tracks with the name **\"Tom Sawyer\"**:\n\n1. **Tom Sawyer** by **Rush**\n   - Album: Moving Pictures (2011 Remaster)\n   - [Listen on Spotify](https://open.spotify.com/track/3QZ7uX97s82HFYSmQUAN1D)\n   - Track ID: 3QZ7uX97s82HFYSmQUAN1D\n   - ![Tom Sawyer by Rush](https://i.scdn.co/image/ab67616d0000b27372833c1ae3343cbfb4617073)\n\n2. **Tom Sawyer** by **Mindless Self Indulgence**\n   - Album: You'll Rebel to Anything (Expanded and Remastered 2008)\n   - [Listen on Spotify](https://open.spotify.com/track/3OnUYB5yBIm3XdWy4PE4hK)\n   - Track ID: 3OnUYB5yBIm3XdWy4PE4hK\n   - ![Tom Sawyer by MSI](https://i.scdn.co/image/ab67616d0000b27386bddc6359ffef0f9c51e56e)\n\n3. **Tom Sawyer** by **Mindless Self Indulgence** (Same as above with a different track ID in another release)\n   - [Listen on Spotify](https://open.spotify.com/track/4ICHG7EdDz1SQEPaKOzT8Q)\n   - Track ID: 4ICHG7EdDz1SQEPaKOzT8Q\n   - ![Tom Sawyer by MSI](https://i.scdn.co/image/ab67616d0000b2732262b75046d76cef09342e08)\n\n4. **Tom Sawyer** by **Kedam**\n   - Album: Kedam\n   - [Listen on Spotify](https://open.spotify.com/track/4APJNUEHZ0BQwaDQjSgxFe)\n   - Track ID: 4APJNUEHZ0BQwaDQjSgxFe\n   - ![Tom Sawyer by Kedam](https://i.scdn.co/image/ab67616d0000b273263484d04ae7caea6f43f69c)\n\n5. **Tom Sawyer - Live** by **Prog Legends Show**\n   - Album: Live in Verona 2023\n   - [Listen on Spotify](https://open.spotify.com/track/0rqfSgVJdJFnKITzniNGmz)\n   - Track ID: 0rqfSgVJdJFnKITzniNGmz\n   - ![Tom Sawyer Live](https://i.scdn.co/image/ab67616d0000b273c44b71acb8701c8186785af4)\n\nThese are various interpretations and performances of \"Tom Sawyer\" across different artists and albums. Explore and enjoy the diversity in music!"
+    },
+    {
+        "role": "user",
+        "content": "do you know every music piece? pls give me some track that is simmilar to mindless self indulgence style"
+    },
+    {
+        "role": "assistant",
+        "content": "I might not know every music piece, but I can certainly suggest tracks similar to the energetic and eclectic style of Mindless Self Indulgence! Here are a few tracks and artists that you might enjoy, keeping in line with the electronic, punk, and industrial influences:\n\n1. **The Left Rights** - \"White\" (Side project of MSI members)\n   - Fast-paced and quirky, they share the same unpredictable and anarchic spirit.\n\n2. **Orgy** - \"Blue Monday\"\n   - This cover of the classic New Order track features an industrial rock sound with electronic influences, similar to MSI.\n\n3. **Electric Six** - \"Danger! High Voltage\"\n   - Known for their high-energy and playful rock music, which akin to the vibe of MSI.\n\n4. **Retox** - \"Let's Not Keep in Touch\"\n   - Embracing a hardcore punk style with frenetic energy, which reflects MSI's raw edge.\n\n5. **Rabbit Junk** - \"What Doesn't Kill You Will Make You a Killer\"\n   - This track incorporates elements of industrial, hardcore, and punk, similar to MSI\u2019s eclectic mix.\n\nThese tracks and artists share some stylistic elements with Mindless Self Indulgence, from their genre-blending approach to their high-intensity deliveries. Give them a listen and see if they capture some of that MSI essence for you!"
+    },
+    {
+        "role": "user",
+        "content": "search for retox in spoti"
+    },
+    {
+        "role": "system",
+        "content": "assistant searched for tracks, function returned:[{\"name\": \"Retox\", \"artist\": \"Fatboy Slim\", \"album\": \"Halfway Between the Gutter and the Stars\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/1ECibZbs6oINtGieezTfdU\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273349e1e4218d1a8e56d436c2c\", \"id\": \"1ECibZbs6oINtGieezTfdU\"}, {\"name\": \"Bajlando\", \"artist\": \"Kabe\", \"album\": \"Z\\u0142ote Przeboje\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/5fxFhJyveLasVUfuHf6lYP\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273094a67fcce6c8035ec17bc2b\", \"id\": \"5fxFhJyveLasVUfuHf6lYP\"}, {\"name\": \"Retox\", \"artist\": \"Fatboy Slim\", \"album\": \"Halfway Between the Gutter and the Stars (15th Anniversary)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/195xH6d3ejRuULBF2tWMJU\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2739accb35d0304a576f6ae57ae\", \"id\": \"195xH6d3ejRuULBF2tWMJU\"}, {\"name\": \"Retox\", \"artist\": \"Essaie Pas\", \"album\": \"Demain est une autre nuit\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/3qv7lBvFniC5Jd67NLThJr\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273350bcba2ac1fb67366f23c6f\", \"id\": \"3qv7lBvFniC5Jd67NLThJr\"}, {\"name\": \"Retox\", \"artist\": \"Jojo Mayer\", \"album\": \"Prohibited Beats\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/2wFXF7K95sFffkPslcTAeu\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273e62d30265e9aa461ff7a7712\", \"id\": \"2wFXF7K95sFffkPslcTAeu\"}, {\"name\": \"Retox\", \"artist\": \"BEC\", \"album\": \"Retox\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/5zxCjPF27PPCHCyaGobU6m\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273f24d222f204afdfe1100586f\", \"id\": \"5zxCjPF27PPCHCyaGobU6m\"}, {\"name\": \"RETOX - Stinky Puppy Mix\", \"artist\": \"DOGZ OR GODZ\", \"album\": \"RETOX (Stinky Puppy Mix)\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/2y5R0GWux1F8I7zobi9kjX\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2736761f3af1807fc9395a44732\", \"id\": \"2y5R0GWux1F8I7zobi9kjX\"}, {\"name\": \"Retox\", \"artist\": \"Entropia\", \"album\": \"Total\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/7DchBvjP5NT2Jg7zrCneqV\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273fecac7ec4ac39875fcd17f4a\", \"id\": \"7DchBvjP5NT2Jg7zrCneqV\"}, {\"name\": \"Retox 2025\", \"artist\": \"Pranayama Om\", \"album\": \"Retox 2025\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/0A8L3aNmogaEtH1gVSuPz6\", \"image\": \"https://i.scdn.co/image/ab67616d0000b273ad08be87ba6e82768a95c1a6\", \"id\": \"0A8L3aNmogaEtH1gVSuPz6\"}, {\"name\": \"RABENVATER\\u2800\", \"artist\": \"TIEFBASSKOMMANDO\", \"album\": \"RETOX\", \"preview_url\": null, \"spotify_url\": \"https://open.spotify.com/track/34sXbr32Ojl7mcEtgsWvJ0\", \"image\": \"https://i.scdn.co/image/ab67616d0000b2732fbb79939553fa4d560abd60\", \"id\": \"34sXbr32Ojl7mcEtgsWvJ0\"}]"
+    },
+    {
+        "role": "assistant",
+        "content": "Here are some tracks named \"Retox\" from various artists on Spotify:\n\n1. **Retox** by **Fatboy Slim**\n   - Album: Halfway Between the Gutter and the Stars\n   - [Listen on Spotify](https://open.spotify.com/track/1ECibZbs6oINtGieezTfdU)\n   - ![Retox by Fatboy Slim](https://i.scdn.co/image/ab67616d0000b273349e1e4218d1a8e56d436c2c)\n\n2. **Retox** by **Essaie Pas**\n   - Album: Demain est une autre nuit\n   - [Listen on Spotify](https://open.spotify.com/track/3qv7lBvFniC5Jd67NLThJr)\n   - ![Retox by Essaie Pas](https://i.scdn.co/image/ab67616d0000b273350bcba2ac1fb67366f23c6f)\n\n3. **Retox** by **Jojo Mayer**\n   - Album: Prohibited Beats\n   - [Listen on Spotify](https://open.spotify.com/track/2wFXF7K95sFffkPslcTAeu)\n   - ![Retox by Jojo Mayer](https://i.scdn.co/image/ab67616d0000b273e62d30265e9aa461ff7a7712)\n\n4. **Retox** by **BEC**\n   - Album: Retox\n   - [Listen on Spotify](https://open.spotify.com/track/5zxCjPF27PPCHCyaGobU6m)\n   - ![Retox by BEC](https://i.scdn.co/image/ab67616d0000b273f24d222f204afdfe1100586f)\n\n5. **RETOX - Stinky Puppy Mix** by **DOGZ OR GODZ**\n   - Album: RETOX (Stinky Puppy Mix)\n   - [Listen on Spotify](https://open.spotify.com/track/2y5R0GWux1F8I7zobi9kjX)\n   - ![RETOX by DOGZ OR GODZ](https://i.scdn.co/image/ab67616d0000b2736761f3af1807fc9395a44732)\n\nThese tracks span different genres and styles. Check them out and see if any pique your interest!"
+    }
+]

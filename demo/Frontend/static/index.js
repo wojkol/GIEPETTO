@@ -104,6 +104,7 @@
             odp1 = document.createElement("p")
             odp1.innerHTML = `<strong>user:</strong> ${userInput}`
             chatBox.appendChild(odp1)
+            chatBox.appendChild(document.createElement("br"))
             document.getElementById("user-input").value = "";
 
             // Send message to Django backend (Make sure it's POST)
@@ -124,4 +125,23 @@
             data.ai_message =  marked.parse(data.ai_message)
             odp2.innerHTML=`<strong>assistant:</strong>${data.ai_message}`;
             chatBox.appendChild(odp2);
+        }
+
+
+
+
+
+        async function login(){
+            window.location.href = "http://127.0.0.1:8000/api/login";
+        }
+
+        async function showPlaylists(){
+            let response = await fetch("/api/playlists/", {
+                method: "POST",  // Ensure this is POST, not GET
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            let data = await response.json()
+            console.log(data.responsedata)
         }
