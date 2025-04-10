@@ -1,29 +1,7 @@
-/* 
 
-#MainSectio{
-    display: flexbox;
-    flex-direction: row;
-}
-
-#leftMENU{
-    border: 3px;
-    border-style: solid;
-    border-color: black;
-    border-width: 1px;
-    height: 300px;
-    width: 20vw;
-    float: left;
-    padding: 10px;
-}
-#chat-box{
-    width: 70vw;
-    
-} */
-
-/* Ogólne style dla strony */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f7fafc; /* Jaśniejszy, bardziej kontrastujący kolor tła */
+    background-color: #333333;
     margin: 0;
     padding: 0;
     display: flex;
@@ -33,15 +11,6 @@ body {
     height: 100vh;
 }
 
-h1 {
-    color: #ffffff; /* Jasny kolor tekstu */
-    font-size: 32px;
-    margin-top: 30px;
-    background-color: #4A90E2; /* Zmieniony kolor tła nagłówka na intensywniejszy niebieski */
-    padding: 10px;
-    border-radius: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 #MainSection {
     display: flex;
@@ -57,7 +26,7 @@ h1 {
 
 #leftMENU {
     width: 250px;
-    background-color: #2D3748; /* Ciemniejszy odcień szarości z lekkim niebieskim odcieniem */
+    background-color: #0d0d0d    ; /* Ciemniejszy odcień szarości z lekkim niebieskim odcieniem */
     color: #ffffff;
     padding: 20px;
     border-right: 1px solid #4A5568; /* Jaśniejszy odcień szarości */
@@ -65,8 +34,11 @@ h1 {
 }
 
 #leftMENU p {
-    font-weight: bold;
-    margin-bottom: 10px;
+    text-align: center;
+    padding: 5%;
+    margin: 0%;
+    background-color: #9900ff;
+    border-radius: 2vw;
     font-size: 16px;
 }
 
@@ -86,6 +58,7 @@ h1 {
 }
 
 #chat-box p {
+    text-align: left;
     background-color: white; 
     color: #2D3748;
     padding: 10px 15px;
@@ -93,28 +66,46 @@ h1 {
     margin: 8px 0; 
     display: inline-block; /* Dopasowanie szerokości do tekstu */
     max-width: 80%; /* Maksymalna szerokość paragrafu */
-    word-wrap: break-word; /* Łamanie słów, jeśli tekst jest za długi */
+    word-wrap: normal; /* Łamanie słów, jeśli tekst jest za długi */
+}
+#chat-box h3,h1,h2 {
+    color: #9900ff;
+}
+#chat-box pre{
+    width: 90%;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #2D3748;
+    color: #d699ff;
+}
+#chat-box pre code{
+    color: #d699ff;
+}
+#chat-box code{
+    color: #3d0066;
+}
+#chat-box img{
+    align-self: center;
+    display: inline-block;
+    max-width: 20%;
 }
 
 #user-input {
+    resize: none;
     width: 80%;
     padding: 12px;
     margin-top: 10px;
     border-radius: 25px;
-    border: 2px solid #B3C2D3; /* Jaśniejsza krawędź inputa */
-    font-size: 16px;
+    border: 2px solid #9900ff;; /* Jaśniejsza krawędź inputa */
+    font-size: 100%;
     outline: none;
     transition: border 0.3s ease;
     background-color: #FFFFFF; /* Białe tło inputa */
 }
 
-#user-input:focus {
-    border-color: #4A90E2; /* Kolor krawędzi po kliknięciu w input */
-}
-
 button {
     padding: 12px 20px;
-    background-color: #4A90E2; /* Intensywny niebieski */
+    background-color: #9900ff; /* Intensywny niebieski */
     color: white;
     border: none;
     border-radius: 25px;
@@ -123,22 +114,39 @@ button {
     margin-left: 10px;
     transition: background-color 0.3s ease;
 }
-
-button:hover {
-    background-color: #357ABD; /* Zmiana koloru przy najechaniu na przycisk */
+#inputs{
+    padding: 1%;
 }
 
-button:disabled {
-    background-color: #CBD5E0; /* Przyciski nieaktywne będą szare */
-    cursor: not-allowed;
+
+#chat-box table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: Arial, sans-serif;
 }
 
-/* Dodatkowe style */
-#user-input, button {
-    display: inline-block;
-    margin-bottom: 20px;
+/* Styles for table headers */
+#chat-box th {
+    background-color: #9900ff;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ddd; /* subtle border for headers */
 }
 
-#leftMENU p, #chat-box {
-    font-size: 14px;
+/* Styles for table cells */
+#chat-box td {
+    padding: 10px;
+    border: 1px solid #3d0066; /* subtle border for cells */
+}
+
+/* Zebra striping for rows */
+#chat-box tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover effect for rows */
+#chat-box tr:hover {
+    background-color: #ddd;
 }

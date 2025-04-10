@@ -11,6 +11,13 @@
             showSessions()
        }
 
+       document.addEventListener("keypress",(e)=>{
+        if(e.key=="Enter"&& !e.shiftKey){
+            if(document.getElementById("user-input").value!=""){
+                sendMessage()
+            }
+        }
+       })
        // function for changing session
         async function Changesession(id) {
             let chatBox = document.getElementById("chat-box");
@@ -48,7 +55,7 @@
         }
         //function for showin session options in GUI
         async function showSessions(existing = false){
-            document.getElementById("leftMENU").innerHTML="<p>Sesje:</p>"
+            document.getElementById("leftMENU").innerHTML="<h3>Sessions:</h3>  "
             let response = await fetch("/api/sessions/", {
                 method: "POST",  // Ensure this is POST, not GET
                 headers: {
@@ -60,7 +67,7 @@
             
             if(existing==false){
                 for(let i = 0;i<data.sessionNames.length;i++){
-                    sessionName =  document.createElement("a");
+                    sessionName =  document.createElement("p");
                     for(let x = 0;x<data.sessionNames[i].length-5;x++){
                         sessionName.innerHTML += data.sessionNames[i][x]
                     }
@@ -102,7 +109,7 @@
             let chatBox = document.getElementById("chat-box");
 
             odp1 = document.createElement("p")
-            odp1.innerHTML = `<strong>user:</strong> ${userInput}`
+            odp1.innerHTML = `<strong>user:</strong><br> ${userInput}`
             chatBox.appendChild(odp1)
             chatBox.appendChild(document.createElement("br"))
             document.getElementById("user-input").value = "";
@@ -123,8 +130,9 @@
             // Display AI response
             odp2 = document.createElement("p");
             data.ai_message =  marked.parse(data.ai_message)
-            odp2.innerHTML=`<strong>assistant:</strong>${data.ai_message}`;
+            odp2.innerHTML=`<strong>assistant:</strong><br>${data.ai_message}`;
             chatBox.appendChild(odp2);
+            chatBox.appendChild(document.createElement("br"))
         }
 
 

@@ -76,7 +76,7 @@ def formatSessionPayload(Sessid):
         data = json.load(file)
     for wiadomosc in data:
         if wiadomosc["role"]!="system":
-            historyDOM.append('<p><strong>'+wiadomosc["role"]+':</strong>'+wiadomosc["content"]+'</p>')
+            historyDOM.append('<p><strong>'+wiadomosc["role"]+':</strong>'+'<br>'+wiadomosc["content"]+'</p>')
     return{
         "ChatHistory":historyDOM
     }
@@ -90,32 +90,54 @@ def formatSessionPayload(Sessid):
 
 functions = [
     {
-        "name": "search_track",
-        "description": "Search for a song on Spotify and return information about the top result. IDs are used for adding tracks to playlists/my music",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string",
-                    "description": "query for spotify api."
+    "name": "search",
+    "description": "Search for songs in the Spotify API. Can execute multiple queries at once for multiple songs, returning info about a given number of top results from each query.Dont return album covers if not specified .USE ONLY WHEN USER STATED TO USE SPOTIFY",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "querys": {
+                "type": "array",
+                "description": "List of queries for the Spotify API to search for.",
+                "items": {
+                    "type": "string"
                 }
             },
-            "required": ["query"]
-        }
+            "resultCount": {
+                "type": "integer",
+                "description": "How many top results each query should return."
+            }
+        },
+        "required": ["querys", "resultCount"]
+    }
     },
-     {
-        "name": "search_tracks",
-        "description": "Search for 10 tracks on Spotify and return information about them. IDs are used for adding tracks to playlists/my music",
-        "parameters": {
-            "type": "object",
-            "properties": {
-                "query": {
-                    "type": "string",
-                    "description": "query for spotify api"
+    {
+    "name": "get_user_playlists",
+    "description": "Returns info about playlists of the current user",
+    "parameters": {
+        "type": "object",
+        "properties": {}
+    }
+    },
+    {
+    "name": "add_tracks_to_playlist",
+    "description": "Add tracks to spotify playlists, use only if user previously asked to retrieve spotify playlist info and track info",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "track_ids": {
+                "type": "array",
+                "description": "list of IDs of tracks that are to be added",
+                "items": {
+                    "type": "string"
                 }
             },
-            "required": ["query"]
-        }
+            "playlist_id": {
+                "type": "string",
+                "description": "ID of target Playlist"
+            }
+        },
+        "required": ["track_ids", "playlist_id"]
+    }
     }
 ]
 
@@ -138,9 +160,9 @@ def chat(message, session_id=None):
     ai_message = response.choices[0].message.content
     if(response.choices[0].finish_reason== "function_call"):
         #call function named search_tracks
-        if(response.choices[0].message.function_call.name=="search_track"):
-            query = response.choices[0].message.function_call.arguments[10:-2]
-            chat_history.append({"role": "system", "content": ("assistant searched for tracks, function returned:"+  json.dumps(search_track(query)))})
+        if(response.choices[0].message.function_call.name=="search"):
+            args = json.loads(response.choices[0].message.function_call.arguments)
+            chat_history.append({"role": "system", "content": ("assistant searched for tracks, function returned:"+  json.dumps(search(args["querys"],args["resultCount"])))})
             afterFunctionresponse = client.chat.completions.create(
             model=AZURE_DEPLOYMENT_NAME,
             messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
@@ -149,9 +171,20 @@ def chat(message, session_id=None):
             function_call="auto"
             )
             ai_message = afterFunctionresponse.choices[0].message.content
-        if(response.choices[0].message.function_call.name=="search_tracks"):
-            query = response.choices[0].message.function_call.arguments[10:-2]
-            chat_history.append({"role": "system", "content": ("assistant searched for tracks, function returned:"+  json.dumps(search_tracks(query)))})
+        if(response.choices[0].message.function_call.name=="get_user_playlists"):
+            chat_history.append({"role": "system", "content": ("assistant requested playlist info, function returned:"+  json.dumps(get_user_playlists()))})
+            afterFunctionresponse = client.chat.completions.create(
+            model=AZURE_DEPLOYMENT_NAME,
+            messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
+            max_tokens=1000,
+            functions=functions,
+            function_call="auto"
+            )
+            ai_message = afterFunctionresponse.choices[0].message.content
+        if(response.choices[0].message.function_call.name=="add_tracks_to_playlist"):
+            args = json.loads(response.choices[0].message.function_call.arguments)
+            chat_history.append({"role": "system", "content": "asistand added added tracks to playlist:"})
+            add_tracks_to_playlist(args["playlist_id"],args["track_ids"])
             afterFunctionresponse = client.chat.completions.create(
             model=AZURE_DEPLOYMENT_NAME,
             messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
@@ -179,7 +212,7 @@ def authenticate_spotify():
         client_id=settings.SPOTIFY_CLIENT_ID,
         client_secret=settings.SPOTIFY_CLIENT_SECRET,
         redirect_uri=settings.SPOTIFY_REDIRECT_URI,
-        scope="user-library-read playlist-read-private",
+       scope="user-library-read playlist-read-private playlist-modify-public playlist-modify-private"
     )
     
     # Redirect the user to Spotify's authentication page
@@ -191,6 +224,7 @@ def get_spotify_token(request):
         client_id=settings.SPOTIFY_CLIENT_ID,
         client_secret=settings.SPOTIFY_CLIENT_SECRET,
         redirect_uri=settings.SPOTIFY_REDIRECT_URI,
+        scope="user-library-read playlist-read-private playlist-modify-public playlist-modify-private"
     )
     
     # Get the token from the URL
@@ -212,55 +246,23 @@ def get_playlists(sp):
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # functions for chat
-def search_track(query: str):
-    """
-    Search for a track on Spotify and return the top result.
-    
-    :param query: The name of the track (or artist, album, etc.).
-    :param access_token: A valid Spotify access token.
-    :return: A dictionary with the top result's details or None if no result is found.
-    """
+
+def search(querys,resultCount):
+    payload = {}
     sp = ''
     with open("./token.json", 'r') as f:
         sp =  json.load(f)
     sp = Spotify(auth=sp)
-    result = sp.search(q=query, type='track', limit=1)
-
-    tracks = result.get('tracks', {}).get('items', [])
-    if not tracks:
-        return None
-
-    top_track = tracks[0]
-    return {
-        'name': top_track['name'],
-        'artist': top_track['artists'][0]['name'],
-        'album': top_track['album']['name'],
-        'preview_url': top_track['preview_url'],
-        'spotify_url': top_track['external_urls']['spotify'],
-        'image': top_track['album']['images'][0]['url'] if top_track['album']['images'] else None,
-        'id': top_track['id']
-    }
-
-def search_tracks(query: str):
-    """
-    Search for tracks on Spotify and return the top 10 results.
-    
-    :param query: The name of the track (or artist, album, etc.).
-    :param access_token: A valid Spotify access token.
-    :return: A list of dictionaries containing details of the top 10 results.
-    """
-    with open("./token.json", 'r') as f:
-        sp =  json.load(f)
-    sp = Spotify(auth=sp)
-    result = sp.search(q=query, type='track', limit=10)
-
-    tracks = result.get('tracks', {}).get('items', [])
-    if not tracks:
-        return []
-
-    track_results = []
-    for track in tracks:
-        track_results.append({
+    for query in querys:
+        resultnumber = 1
+        payload[query]=[]
+        result = sp.search(q=query, type='track', limit=resultCount)
+        tracks = result.get('tracks', {}).get('items', [])
+        if not tracks:
+            return None
+        for track in tracks:
+            payload[query].append({
+            'result': resultnumber,
             'name': track['name'],
             'artist': track['artists'][0]['name'],
             'album': track['album']['name'],
@@ -268,7 +270,52 @@ def search_tracks(query: str):
             'spotify_url': track['external_urls']['spotify'],
             'image': track['album']['images'][0]['url'] if track['album']['images'] else None,
             'id': track['id']
-        })
+            })
+            resultnumber+=1
+    return payload
 
-    return track_results
+def get_user_playlists():
+    sp = ''
+    with open("./token.json", 'r') as f:
+        sp =  json.load(f)
+    sp = Spotify(auth=sp)
+    playlists = []
+    results = sp.current_user_playlists(limit=50)
+    # Spotify paginates results, so keep fetching until done
+    while results:
+        for item in results['items']:
+            playlists.append({
+                'name': item['name'],
+                'id': item['id'],
+                'tracks_total': item['tracks']['total'],
+                'public': item['public'],
+                'collaborative': item['collaborative'],
+                'description': item['description'],
+                'spotify_url': item['external_urls']['spotify'],
+                'image': item['images'][0]['url'] if item['images'] else None
+            })
 
+        # Check if there's a next page
+        if results['next']:
+            results = sp.next(results)
+        else:
+            break
+
+    return playlists
+
+def add_tracks_to_playlist( playlist_id: str, track_ids: list):
+    sp = ''
+    with open("./token.json", 'r') as f:
+        sp =  json.load(f)
+    sp = Spotify(auth=sp)
+
+    # Spotify API allows a max of 100 tracks per request
+    batch_size = 100
+    responses = []
+
+    for i in range(0, len(track_ids), batch_size):
+        batch = track_ids[i:i+batch_size]
+        response = sp.playlist_add_items(playlist_id, batch)
+        responses.append(response)
+
+    return responses

@@ -5,25 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat with AI</title>
     <link rel="stylesheet" href="./static/index.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body onload="afterDocLoaded()">
-    <h1>Chat with AI</h1>
     <section id="MainSection">
         <section id="leftMENU" style="overflow-y: scroll;">
-            <p>Sesje:</p>    
+            <h3>Sessions:</h3>    
         </section>
         <section id="chat-box">
         </section>
 
     </section>
-    
-    <input type="text" id="user-input" placeholder="Type a message...">
-    <section style="display: flex; flex-direction: row;">
+    <textarea id="user-input"></textarea>
+    <section id="inputs" style="display: flex; flex-direction: row;">
         <button onclick="sendMessage()">Send</button>
-        <button onclick="newConversation()">Nowa rozmowa</button>
-        <button onclick="login()">zaloguj do spoti</button>
-        <button onclick="showPlaylists()">wyswietl plajki</button>
+        <button onclick="newConversation()">New Conversation</button>
+        <button onclick="login()">Login to Spotify</button>
         <script src="./static/index.js"></script>
 
     </section>
