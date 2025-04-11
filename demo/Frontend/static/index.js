@@ -21,7 +21,11 @@
        // function for changing session
         async function Changesession(id) {
             let chatBox = document.getElementById("chat-box");
-            chatBox.innerHTML = ""            
+            chatBox.innerHTML = "" 
+            div = document.createElement("div")
+            div.id="logo"
+            div.innerHTML='<img src="static/tralalerotrala.jpg" alt="Logo" width="100" height="100">'   
+            chatBox.appendChild(div)        
             let new_id=""
             for(let i = 0;i<id.length-5;i++)
                 new_id += id[i]
@@ -93,6 +97,10 @@
             let chatBox = document.getElementById("chat-box");
             session_id = generateSessionId();
             chatBox.innerHTML = "";
+            div = document.createElement("div")
+            div.id="logo"
+            div.innerHTML='<img src="static/tralalerotrala.jpg" alt="Logo" width="100" height="100">'   
+            chatBox.appendChild(div)
             showSessions();
 
         }

@@ -17,7 +17,7 @@ body {
     margin-top: 20px;
     width: 80%;
     max-width: 1200px;
-    height: 60%; /* Zwiększenie wysokości głównej sekcji */
+    height: 75%; /* Zwiększenie wysokości głównej sekcji */
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -66,7 +66,7 @@ body {
     margin: 8px 0; 
     display: inline-block; /* Dopasowanie szerokości do tekstu */
     max-width: 80%; /* Maksymalna szerokość paragrafu */
-    word-wrap: normal; /* Łamanie słów, jeśli tekst jest za długi */
+    word-wrap: break-word; /* Łamanie słów, jeśli tekst jest za długi */
 }
 #chat-box h3,h1,h2 {
     color: #9900ff;
@@ -92,7 +92,8 @@ body {
 
 #user-input {
     resize: none;
-    width: 80%;
+    width: 78%;
+    height: 3%;
     padding: 12px;
     margin-top: 10px;
     border-radius: 25px;
@@ -125,6 +126,14 @@ button {
     border-collapse: collapse;
     text-align: left;
     font-family: Arial, sans-serif;
+}
+
+#chat-box div{
+    text-align: center;
+}
+
+#chat-box img{
+    border-radius: 50%;
 }
 
 /* Styles for table headers */
