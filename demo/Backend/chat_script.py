@@ -47,9 +47,6 @@ def generate_session_id():
     
     return str(uuid.uuid4())
     
-
-
-
 def showSessions(message):
     sess_names = os.listdir("/home/a940614/GIEPETTO/GIEPETTO/demo/chat_sessions")
     for name in sess_names:
@@ -80,10 +77,6 @@ def formatSessionPayload(Sessid):
     return{
         "ChatHistory":historyDOM
     }
-
-
-
-
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #chat implementation
@@ -138,10 +131,31 @@ functions = [
         },
         "required": ["track_ids", "playlist_id"]
     }
+    },
+    {
+    "name": "create_playlist",
+    "description": "Create a new Spotify playlist",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string",
+                "description": "Name of spotify playlist"
+            },
+            "description": {
+                "type": "string",
+                "description": "Description of spotify playlist"
+            }
+            ,
+            "public": {
+                "type": "boolean",
+                "description": "Specifies if the playlist should be public"
+            }
+        },
+        "required": ["name", "description", "public"]
+    }
     }
 ]
-
-
 
 def chat(message, session_id=None):
     if session_id is None:
@@ -153,7 +167,7 @@ def chat(message, session_id=None):
     response = client.chat.completions.create(
         model=AZURE_DEPLOYMENT_NAME,
         messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
-        max_tokens=1000,
+        max_tokens=4096,
         functions=functions,
         function_call="auto"
     )#
@@ -166,7 +180,7 @@ def chat(message, session_id=None):
             afterFunctionresponse = client.chat.completions.create(
             model=AZURE_DEPLOYMENT_NAME,
             messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
-            max_tokens=1000,
+            max_tokens=4096,
             functions=functions,
             function_call="auto"
             )
@@ -176,7 +190,7 @@ def chat(message, session_id=None):
             afterFunctionresponse = client.chat.completions.create(
             model=AZURE_DEPLOYMENT_NAME,
             messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
-            max_tokens=1000,
+            max_tokens=4096,
             functions=functions,
             function_call="auto"
             )
@@ -188,11 +202,23 @@ def chat(message, session_id=None):
             afterFunctionresponse = client.chat.completions.create(
             model=AZURE_DEPLOYMENT_NAME,
             messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
-            max_tokens=1000,
+            max_tokens=4096,
             functions=functions,
             function_call="auto"
             )
             ai_message = afterFunctionresponse.choices[0].message.content
+        if(response.choices[0].message.function_call.name=="create_playlist"):
+            args = json.loads(response.choices[0].message.function_call.arguments)
+            create_playlist(args["name"],args["description"],args["public"])
+            chat_history.append({"role": "system", "content": "asistant created playlist"})
+
+            afterFunctionresponse = client.chat.completions.create(
+            model=AZURE_DEPLOYMENT_NAME,
+            messages=[{"role": "system", "content": 'You are a helpful, witty AI assistant '}] + chat_history,
+            max_tokens=4096,
+            )
+            ai_message = afterFunctionresponse.choices[0].message.content
+            print(afterFunctionresponse.choices[0].message.content)
 
     chat_history.append({"role": "assistant", "content": ai_message})
     save_chat_history(session_id, chat_history)
@@ -242,7 +268,6 @@ def get_playlists(sp):
     for idx, playlist in enumerate(playlists['items']):
         responsedata.append(f"{idx + 1}. {playlist['name']} - {playlist['tracks']['total']} tracks")
     return {"responsedata":responsedata}
-
 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # functions for chat
@@ -319,3 +344,23 @@ def add_tracks_to_playlist( playlist_id: str, track_ids: list):
         responses.append(response)
 
     return responses
+
+def create_playlist(name: str, description: str = "", public: bool = True):
+    sp = ''
+    with open("./token.json", 'r') as f:
+        sp =  json.load(f)
+    sp = Spotify(auth=sp)
+    
+    user_id = sp.me()['id']
+    
+    playlist = sp.user_playlist_create(
+        user=user_id,
+        name=name,
+        public=public,
+        description=description
+    )
+
+    return {
+        'id': playlist['id'],
+        'url': playlist['external_urls']['spotify']
+    }
